@@ -8,7 +8,7 @@ from shodan import WebAPI
 
 
 #My key. Get your own :)
-KEY = "e9y5YsQLDTXp36hPsvAXRAZxGkvEa1ig"
+KEY = ""
 api = WebAPI(KEY)
 
 class ShodanScanner(object):
