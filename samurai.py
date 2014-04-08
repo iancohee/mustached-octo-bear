@@ -6,7 +6,6 @@ the shodan libraries
 """
 from shodan import WebAPI
 
-
 #My key. Get your own :)
 KEY = "e9y5YsQLDTXp36hPsvAXRAZxGkvEa1ig"
 api = WebAPI(KEY)
