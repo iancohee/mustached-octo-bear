@@ -7,8 +7,9 @@ the shodan libraries
 from shodan import WebAPI
 
 #My key. Get your own :)
-KEY = "e9y5YsQLDTXp36hPsvAXRAZxGkvEa1ig"
+KEY = ""
 api = WebAPI(KEY)
+filename = 'ips.txt'
 
 class ShodanScanner(object):
 
@@ -17,17 +18,16 @@ class ShodanScanner(object):
 
     def searchShodan(self, search_string):
         try:
-            filename = 'ips.txt'
-            fp = open(filename, 'w');
             self.results = self.api.search(search_string)
             for result in self.results['matches']:
                 print result['ip'], str(result['latitude']), str(result['longitude'])
-                fp.write(result['ip']+' '+str(result['latitude'])+','+str(result['longitude'])+'\n')
+                fp = open(filename, 'w');
+                fp.write(result['ip'])
+                fp.close()
             for name in result['hostnames']:
                 print name
                 print result['data']
                 print '***%s results with \"%s\"***' % (self.results['total'], search_string)
-                fp.close()
         except Exception, e:
             print 'Error: %s' % e
 
